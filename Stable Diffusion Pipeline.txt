@@ -1,0 +1,31 @@
+Stable Diffusion Pipeline:
+
+Our project showcases two of Trition Inference Server's features:
+1) Using multiple framworks in the same inference pipeline.
+2) Using Python Backend's "Business Logic Scripting" API to build complex non linear pipelines.
+
+Models are being run on:
+1) ONNX Backend
+2) TensorRT Backend
+3) Python Backend
+
+Step 1: Preparing the server environment
+-- Running the Nvidia Triton Inference Server container from Docker.
+-- Installing the dependencies of Pytorch and Transformers libraries required by the models running on python backend.
+   --> torch, torchvision, torchaudio
+   --> transformers, ftfy (fixes text for you), scipy, accelerate
+   --> diffusers
+   --> transformers[onnxruntime]
+-- Loggin into HuggingFace through cli.
+
+Step 2: Exporting and converting the models
+-- Running the Nvidia Pytorch Container from Docker to export and convert models.
+-- Accelerating Variational Auto Encoder (VAE) with TensorRT.
+-- Placing the models in the model repository.
+
+Step 3: Launching the Server
+-- Launching the Triton Server from the server container.
+
+Step 4: Running the Client
+-- Running the client from the client container
+-- Quering through cli or gui
